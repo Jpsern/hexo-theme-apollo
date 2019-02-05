@@ -12,3 +12,13 @@ fancybox: true
 # Miscellaneous
 google_analytics:
 favicon: /images/favicon-g.png
+
+toc:
+  maxdepth: 3
+  class: toc
+  slugify: uslug
+  decodeEntities: false
+  anchor:
+    position: after
+    symbol: '#'
+    style: header-anchor
