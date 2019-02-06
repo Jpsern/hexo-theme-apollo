@@ -11,6 +11,12 @@
 		<%- partial('post/title', {class_name: 'article-title'}) %>
 	</header>
 	<div class="entry-content">
+		<% if (!index){ %>
+			<div id="toc" class="toc-article">
+				<p class="toc-title">Index</p>
+				<%- toc(post.content) %>
+			</div>
+		<% } %>
 		<% if (post.excerpt && index){ %>
 			<%- post.excerpt %>
 			<% if (theme.excerpt_link){ %>
