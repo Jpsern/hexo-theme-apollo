@@ -1,1 +1,2 @@
-<%- partial('_partial/article-page', {post: page, index: false}) %>
+<% var need_toc = (page.path == 'music/index.html') %>
+<%- partial('_partial/article-page', {post: page, index: false, need_toc: need_toc}) %>

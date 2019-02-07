@@ -11,7 +11,7 @@
 		<%- partial('post/title', {class_name: 'article-title'}) %>
 	</header>
 	<div class="entry-content">
-		<% if (!index){ %>
+		<% if (!index && need_toc){ %>
 			<div id="toc" class="toc-article">
 				<p class="toc-title">Index</p>
 				<%- toc(post.content) %>
