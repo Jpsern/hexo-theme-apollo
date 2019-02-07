@@ -5,6 +5,13 @@
   & .entry-content h1
     font-size: 170%;
 
+.archive-list-count
+  padding-left: 5px;
+.archive-list-count:before
+  content: "(";
+.archive-list-count:after
+  content: ")";
+
 #page-nav
   text-align: center
   text-transform: uppercase
@@ -32,3 +39,8 @@
     color: color-border
   .next
     min-width: 5em
+
+.widget
+  margin-bottom: 30px;
+  .widget-title
+    border-bottom: 1px solid #ddd;

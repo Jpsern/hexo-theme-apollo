@@ -1,1 +1,5 @@
-<%- partial('_partial/archive', {pagination: config.archive, index: true}) %>
+<% if(page.path == 'archives/index.html') { %>
+  <%- partial('_partial/archive-index') %>
+<% } else { %>
+  <%- partial('_partial/archive', {pagination: config.archive, index: true}) %>
+<% } %>
