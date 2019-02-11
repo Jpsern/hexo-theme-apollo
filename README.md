@@ -1,11 +1,7 @@
 Hexo theme: Apollo
 =================
 
-**This hexo theme is modified from SANOGRAPHIX.NET**
-
-[Original](https://github.com/sanographix/tumblr/tree/master/apollo) (Tumblr theme)  
-[Demo](http://joyceim.github.io/hexo-theme-apollo)
-
+This hexo theme is a fork from http://github.com/joyceim/hexo-theme-apollo/
 
 ## Installation
 
