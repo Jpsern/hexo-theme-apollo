@@ -26,6 +26,11 @@ cd themes/apollo
 git pull
 ```
 
+If using Git submodule
+```bash
+git submodule update
+```
+
 ## Configuration
 
 ``` yml
