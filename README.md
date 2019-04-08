@@ -1,7 +1,7 @@
 Hexo theme: Apollo
 =================
 
-This hexo theme is a fork from http://github.com/joyceim/hexo-theme-apollo/
+This hexo theme is a fork from https://github.com/joyceim/hexo-theme-apollo/
 
 ## Installation
 
@@ -10,6 +10,11 @@ This hexo theme is a fork from http://github.com/joyceim/hexo-theme-apollo/
 Run this command from inside your hexo project
 ``` bash
 $ git clone https://github.com/jpsern/hexo-theme-apollo.git themes/apollo
+```
+
+If your project already in Git management, please using Git submodule.
+```bash
+$ git submodule add https://github.com/jpsern/hexo-theme-apollo.git
 ```
 
 **Apollo requires Hexo 2.4 and above.**
