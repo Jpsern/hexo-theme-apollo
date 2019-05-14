@@ -5,6 +5,21 @@
   & .entry-content h1
     font-size: 170%;
 
+  h3
+    border-bottom: solid 1px #7f779E;
+    position: relative;
+    padding-left: 1.1em;
+    font-size: 1.2em;
+    &:before
+      position: absolute;
+      font-family: font-icon;
+      font-size: 0.9em;
+      content: "\f040";
+      color: #7F779E;
+      left: 0;
+    & a:hover
+      color: color-link
+
 .archive-list-count
   padding-left: 5px;
 .archive-list-count:before
@@ -44,8 +59,7 @@
   margin-bottom: 30px;
   .widget-title
     border-bottom: 1px solid #ddd;
-    line-height: 2.7;
+    line-height: 2.0;
     margin-top: 0;
     font-size: 1.2rem;
     display: block;
-    font-weight: 400;
