@@ -1,7 +1,7 @@
 Hexo theme: Apollo
 =================
 
-This hexo theme is a fork from https://github.com/joyceim/hexo-theme-apollo/
+This hexo theme is a fork from https://github.com/AthenaYin/hexo-theme-apollo
 
 ## Installation
 
