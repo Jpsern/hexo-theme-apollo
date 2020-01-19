@@ -28,7 +28,7 @@
   <% if (theme.favicon){ %>
     <link rel="icon" href="<%- theme.favicon %>">
   <% } %>
-  <%- css('css/style') %>
+  <%- css({href:'css/style',media: 'print', onload: "this.media='all'"}) %>
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <%- partial('google-analytics') %>
 </head>
