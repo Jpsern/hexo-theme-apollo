@@ -1,10 +1,10 @@
 # Header
 menu:
   Home: /
-  Privacy: /privacy
   About: /about
   Archives: /archives
   Music: /music
+  Privacy: /privacy
 rss: /atom.xml
 
 # Content
