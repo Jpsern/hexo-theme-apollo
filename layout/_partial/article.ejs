@@ -20,6 +20,7 @@
 				<p class="toc-title">目次</p>
 				<%- toc(post.content) %>
 			</div>
+			<%- partial('_custom_ad/google_ad_top') %>
 		<% } %>
 		<% if (post.excerpt && index){ %>
 			<%- post.excerpt %>
@@ -27,10 +28,10 @@
 				<p class="article-more-link">
 					<a href="<%- config.root %><%- post.path %>"><%= theme.excerpt_link %></a>
 				</p>
-      <% } %>
-    <% } else { %>
-    	<%- post.content %>
-    <% } %>
+			<% } %>
+    	<% } else { %>
+    		<%- post.content %>
+    	<% } %>
 	</div>
 	<footer class="entry-footer">
 		<div class="entry-meta-footer">
@@ -42,9 +43,10 @@
 			</span>
 		</div>
 	</footer>
+	<%- partial('_custom_ad/google_ad_bottom') %>
 	<% if (!index){ %>
-    <%- partial('post/nav') %>
-  <% } %>
+    	<%- partial('post/nav') %>
+	<% } %>
 </article>
 
 <% if (index){ %>
