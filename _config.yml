@@ -14,7 +14,7 @@ fancybox: true
 # Miscellaneous
 google_analytics: UA-46293351-2
 favicon: /images/favicon-g.png
-apple_touch_icon: /images/large-g.png
+apple_touch_icon: /images/apple-touch-icon.png
 
 toc:
   maxdepth: 3
