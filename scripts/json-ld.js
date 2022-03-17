@@ -19,6 +19,13 @@
       '@type': 'ImageObject',
       url: this.full_url_for('/images/dokan.svg')
     };
+
+    const image = {
+      '@type': 'ImageObject',
+      url: this.full_url_for('/images/dokan.svg'),
+      width: 180,
+      height: 180
+    };
   
     if (this.is_post()) {
       schema = {
@@ -36,7 +43,8 @@
           '@id': this.url_for(page.permalink)
         },
         publisher,
-        url: this.url_for(page.permalink)
+        url: this.url_for(page.permalink),
+        image
       };
   
       if (page.tags && page.tags.length > 0) {
@@ -51,7 +59,8 @@
         author: author,
         name: config.title,
         description: config.description,
-        url: config.url
+        url: config.url,
+        image
       };
   
       if (config.keywords && config.keywords.length) {
