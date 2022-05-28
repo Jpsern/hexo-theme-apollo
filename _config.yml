@@ -12,7 +12,9 @@ excerpt_link: もっと見る
 fancybox: true
 
 # Miscellaneous
-google_analytics: UA-46293351-2
+google_analytics: 
+  tracking_id: UA-46293351-2
+  measurement_id: G-J7BH394450
 # favicon: /images/favicon-g.png
 # apple_touch_icon: /images/apple-touch-icon.png
 
