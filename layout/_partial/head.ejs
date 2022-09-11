@@ -26,6 +26,8 @@
   <% if (theme.rss){ %>
     <link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
   <% } %>
+  <%# canonical %>
+  <%- autoCanonical(config, page) %>
 
   <%# ファビコン %>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
