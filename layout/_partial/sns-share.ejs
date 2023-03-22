@@ -1,0 +1,20 @@
+<ul class="sns-share--area">
+    <li>
+        <a class="sns-share--twitter sns-share--link" href="https://twitter.com/intent/tweet?url=<%=url%>&text=<%=title%>" target="_blank" title="Twitterに投稿">
+        <i class="fa fa-twitter fa-lg"></i></a>
+    </li>
+    <li>
+        <a class="sns-share--facebook sns-share--link" href="https://www.facebook.com/sharer/sharer.php?u=<%=url%>" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;" target="_blank" title="Facebookでシェア">
+        <i class="fa fa-facebook fa-lg"></i></a>
+    </li>
+    <li>
+        <a href="https://b.hatena.ne.jp/entry/<%=url%>" class="hatena-bookmark-button sns-share--bookmark sns-share--link" data-hatena-bookmark-title="<%=title%>" data-hatena-bookmark-layout="simple" title="はてなブックマークに追加">
+        <i class="fa fa-bookmark fa-lg"></i></a>
+    </li>
+    <%#
+    <li>
+        <a class="sns-share--pocket sns-share--link" href="http://getpocket.com/edit?url=http%3A%2F%2Fbornknow.com%2F2015%2F07%2Fmvno-1.html&amp;title=DMM mobile に登録する" onclick="window.open(this.href, 'pocket_window', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;">
+        <i class="fa fa-line fa-lg"></i></a>
+    </li>
+    %>
+</ul>

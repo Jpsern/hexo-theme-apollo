@@ -35,6 +35,7 @@
 	<% if (!index){ %>
 		<%- partial('post/nav') %>
 	<% } %>
+	<%- partial('sns-share', {title: post.title, url: post.permalink}) %>
 </article>
 
 <% if (index){ %>
