@@ -1,18 +1,18 @@
 <ul class="sns-share--area">
     <li>
-        <span class="sns-share--alt sns-share--link" title="共有する">
-        <i class="fa fa-share-square-o fa-lg"></i></span>
-    </li>
-    <li>
         <a class="sns-share--twitter sns-share--link" href="https://twitter.com/intent/tweet?url=<%=url%>&text=<%=title%>" target="_blank" title="Twitterに投稿">
         <i class="fa fa-twitter fa-lg"></i></a>
     </li>
     <li>
-        <a class="sns-share--facebook sns-share--link" href="https://www.facebook.com/sharer/sharer.php?u=<%=url%>" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;" target="_blank" title="Facebookでシェア">
+        <a class="sns-share--facebook sns-share--link" href="http://www.facebook.com/share.php?u=<%=url%>" rel="nofollow noopener" target="_blank" title="Facebookでシェア">
         <i class="fa fa-facebook fa-lg"></i></a>
     </li>
     <li>
         <a href="https://b.hatena.ne.jp/entry/<%=url%>" class="hatena-bookmark-button sns-share--bookmark sns-share--link" data-hatena-bookmark-title="<%=title%>" data-hatena-bookmark-layout="simple" title="はてなブックマークに追加">
         <i class="fa fa-bookmark fa-lg"></i></a>
+    </li>
+    <li>
+        <a href="https://social-plugins.line.me/lineit/share?url=<%=url%>" class="sns-share--line sns-share--link" title="LINEでシェアする">
+        <i class="fa fa-line fa-lg"></i></a>
     </li>
 </ul>
