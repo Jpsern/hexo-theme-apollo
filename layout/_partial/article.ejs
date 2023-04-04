@@ -20,7 +20,8 @@
 				<p class="toc-title">目次</p>
 				<%- toc(post.content) %>
 			</div>
-			<%- partial('_custom_ad/google_ad_top') %>
+			<%# adsense 上部はいったん停止 %>
+			<%# partial('_custom_ad/google_ad_top') %>
 		<% } %>
 		<% if (post.excerpt && index){ %>
 			<%- post.excerpt %>
