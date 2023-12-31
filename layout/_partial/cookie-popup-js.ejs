@@ -1,0 +1,45 @@
+<script type="text/javascript">
+(function() {
+    document.addEventListener("DOMContentLoaded", function(){
+        const cookieExpirationDays = 365;
+        const cookiePopup = document.querySelector('.cookie-consent');
+        const agreeButton = document.querySelector('.cookie-agree');
+        const popupFlag = localStorage.getItem('popupFlag');
+    
+        function showPopup() {
+            cookiePopup.classList.add('is-show');
+        }
+    
+        function setPopupFlag(value, expire) {
+            const currentTimestamp = new Date().getTime();
+            const expirationTimestamp = currentTimestamp + expire * 24 * 3600 * 1000;
+            const item = {
+                value: value,
+                expire: expirationTimestamp
+            };
+            localStorage.setItem('popupFlag', JSON.stringify(item));
+        }
+
+        if(!popupFlag) {
+            setPopupFlag('true', cookieExpirationDays);
+            showPopup();
+        }
+
+        const storedData = JSON.parse(popupFlag);
+        if (storedData.value === 'true') {
+            showPopup();
+        } else {
+            const currentTimestamp = new Date().getTime();
+            if (currentTimestamp > storedData.expire) {
+                setPopupFlag('true', cookieExpirationDays);
+                showPopup();
+            }
+        }
+
+        agreeButton.addEventListener('click', () => {
+            cookiePopup.classList.add('cc-hide1');
+            setPopupFlag('false', cookieExpirationDays);
+        });
+    });
+}());
+</script>
