@@ -4,7 +4,6 @@
         const cookieExpirationDays = 365;
         const cookiePopup = document.querySelector('.cookie-consent');
         const agreeButton = document.querySelector('.cookie-agree');
-        const popupFlag = localStorage.getItem('popupFlag');
     
         function showPopup() {
             cookiePopup.classList.add('is-show');
@@ -20,9 +19,11 @@
             localStorage.setItem('popupFlag', JSON.stringify(item));
         }
 
+        let popupFlag = localStorage.getItem('popupFlag');
         if(!popupFlag) {
             setPopupFlag('true', cookieExpirationDays);
             showPopup();
+            popupFlag = localStorage.getItem('popupFlag');
         }
 
         const storedData = JSON.parse(popupFlag);
@@ -37,7 +38,7 @@
         }
 
         agreeButton.addEventListener('click', () => {
-            cookiePopup.classList.add('cc-hide1');
+            cookiePopup.classList.add('cc-hide2');
             setPopupFlag('false', cookieExpirationDays);
         });
     });
