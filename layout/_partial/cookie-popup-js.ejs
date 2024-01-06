@@ -27,25 +27,25 @@
             }
         }
 
-        function PopupDisplay(){
+        function popupDisplay(){
             cookiePopup.classList.add('is-show');
         }
 
         if (!cookieSetFlag && !rejectFlag) {
-            PopupDisplay();
+            popupDisplay();
         }
 
         const agreeButton = document.querySelector('.cookie-agree');
         agreeButton.addEventListener('click', ()=> {
             cookiePopup.classList.add('cc-hide2');
-            SetCookie();
+            setCookie();
         });
 
         const rejectButton = document.querySelector('.cookie-reject');
         rejectButton.addEventListener('click', ()=> {
             cookiePopup.classList.add('cc-hide2');
             sessionStorage.setItem('rejectFlag', true);
-            DeleteAllCookie();
+            deleteAllCookie();
         });
     });
 }());
