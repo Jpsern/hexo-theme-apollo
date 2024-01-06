@@ -1,45 +1,51 @@
 <script type="text/javascript">
 (function() {
     document.addEventListener("DOMContentLoaded", function(){
-        const cookieExpirationDays = 365;
         const cookiePopup = document.querySelector('.cookie-consent');
-        const agreeButton = document.querySelector('.cookie-agree');
-    
-        function showPopup() {
-            cookiePopup.classList.add('is-show');
-        }
-    
-        function setPopupFlag(value, expire) {
-            const currentTimestamp = new Date().getTime();
-            const expirationTimestamp = currentTimestamp + expire * 24 * 3600 * 1000;
-            const item = {
-                value: value,
-                expire: expirationTimestamp
-            };
-            localStorage.setItem('popupFlag', JSON.stringify(item));
+        const rejectFlag = sessionStorage.getItem('rejectFlag');
+        let cookieSetFlag = false;
+        const cookieDataList = document.cookie.split('; ');
+
+        for (const cookie of cookieDataList) {
+            const cookieSplit = cookie.split('=');
+            if (cookieSplit[0] === 'robotama-cookie') cookieSetFlag = true;
         }
 
-        let popupFlag = localStorage.getItem('popupFlag');
-        if(!popupFlag) {
-            setPopupFlag('true', cookieExpirationDays);
-            showPopup();
-            popupFlag = localStorage.getItem('popupFlag');
+        function setCookie(){
+            const cookieExpirationDays = 31;
+            const current = new Date();
+            expire = current.getTime() + cookieExpirationDays * 24 * 3600 * 1000;
+            document.cookie = `robotama-cookie=robotama-read; expire=${expire}`;
         }
 
-        const storedData = JSON.parse(popupFlag);
-        if (storedData.value === 'true') {
-            showPopup();
-        } else {
-            const currentTimestamp = new Date().getTime();
-            if (currentTimestamp > storedData.expire) {
-                setPopupFlag('true', cookieExpirationDays);
-                showPopup();
+        function deleteAllCookie(){
+            const maxAgeZero = 'max-age=0';
+
+            for (const cookie of cookieDataList) {
+                const cookieSplit = cookie.split('=');
+                document.cookie = `${cookieSplit[0]}=; ${maxAgeZero}`;
             }
         }
 
-        agreeButton.addEventListener('click', () => {
+        function PopupDisplay(){
+            cookiePopup.classList.add('is-show');
+        }
+
+        if (!cookieSetFlag && !rejectFlag) {
+            PopupDisplay();
+        }
+
+        const agreeButton = document.querySelector('.cookie-agree');
+        agreeButton.addEventListener('click', ()=> {
             cookiePopup.classList.add('cc-hide2');
-            setPopupFlag('false', cookieExpirationDays);
+            SetCookie();
+        });
+
+        const rejectButton = document.querySelector('.cookie-reject');
+        rejectButton.addEventListener('click', ()=> {
+            cookiePopup.classList.add('cc-hide2');
+            sessionStorage.setItem('rejectFlag', true);
+            DeleteAllCookie();
         });
     });
 }());
