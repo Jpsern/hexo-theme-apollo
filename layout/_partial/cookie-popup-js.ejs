@@ -1,48 +1,48 @@
 <script type="text/javascript">
-(function() {
-    document.addEventListener("DOMContentLoaded", function(){
-        const cookiePopup = document.querySelector('.cookie-consent');
-        const rejectFlag = sessionStorage.getItem('rejectFlag');
-        let cookieSetFlag = false;
-        const cookieDataList = document.cookie.split('; ');
+(function () {
+    document.addEventListener("DOMContentLoaded", function () {
 
-        for (const cookie of cookieDataList) {
-            const cookieSplit = cookie.split('=');
-            if (cookieSplit[0] === 'robotama-cookie') cookieSetFlag = true;
+        function hasCookie(cookieName) {
+            const cookieDataList = document.cookie.split('; ');
+            return cookieDataList.some(cookie => cookie.startsWith(`${cookieName}=`));
         }
 
-        function setCookie(){
-            const cookieExpirationDays = 31;
+        function setCookie(cookieName, cookieValue, expirationDays) {
             const current = new Date();
-            expire = current.getTime() + cookieExpirationDays * 24 * 3600 * 1000;
-            document.cookie = `robotama-cookie=robotama-read; expire=${expire}`;
+            const expire = new Date(current.getTime() + expirationDays * 24 * 3600 * 1000);
+            document.cookie = `${cookieName}=${cookieValue}; expires=${expire.toUTCString()}`;
         }
 
-        function deleteAllCookie(){
+        function deleteAllCookie() {
             const maxAgeZero = 'max-age=0';
 
-            for (const cookie of cookieDataList) {
-                const cookieSplit = cookie.split('=');
-                document.cookie = `${cookieSplit[0]}=; ${maxAgeZero}`;
-            }
+            document.cookie.split('; ').forEach(cookie => {
+                const [cookieName] = cookie.split('=');
+                document.cookie = `${cookieName}=; ${maxAgeZero}`;
+            });
         }
 
-        function popupDisplay(){
+        const cookiePopup = document.querySelector('.cookie-consent');
+        function popupDisplay() {
             cookiePopup.classList.add('is-show');
         }
 
-        if (!cookieSetFlag && !rejectFlag) {
+        const rejectFlag = sessionStorage.getItem('rejectFlag');
+        if (!hasCookie('jpsern-cookie') && !rejectFlag) {
             popupDisplay();
+        } else if (rejectFlag) {
+            deleteAllCookie();
         }
 
         const agreeButton = document.querySelector('.cookie-agree');
-        agreeButton.addEventListener('click', ()=> {
+        agreeButton.addEventListener('click', () => {
             cookiePopup.classList.add('cc-hide2');
-            setCookie();
+            // 拒否時はそもそも cookie 使わないのでぶっちゃけ value はなんでもいい。とりあえず適当
+            setCookie('jpsern-cookie', 'passed', 31);
         });
 
         const rejectButton = document.querySelector('.cookie-reject');
-        rejectButton.addEventListener('click', ()=> {
+        rejectButton.addEventListener('click', () => {
             cookiePopup.classList.add('cc-hide2');
             sessionStorage.setItem('rejectFlag', true);
             deleteAllCookie();
