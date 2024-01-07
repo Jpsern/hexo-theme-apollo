@@ -1,5 +1,6 @@
   .cookie-consent
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     position: fixed;
@@ -12,6 +13,9 @@
     box-sizing: border-box;
     visibility: hidden;
   
+  .cookie-text
+    margin-bottom: 1em;
+
   .cookie-consent.is-show
     visibility: visible;
 
@@ -21,7 +25,7 @@
   .cookie-agree
     color: #fff;
     background: #214DCA;
-    padding: .5em 1.5em;
+    padding: .5em 1em;
     margin-left: 1.5em;
 
   .cookie-reject
@@ -49,9 +53,3 @@
     to
       opacity: 0;
       visibility: hidden;
-
-  @media screen and (max-width: 600px)
-    .cookie-consent
-      flex-direction: column;
-    .cookie-text
-      margin-bottom: 1em;
