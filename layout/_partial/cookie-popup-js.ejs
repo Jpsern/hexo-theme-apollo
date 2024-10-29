@@ -10,7 +10,7 @@
         function setCookie(cookieName, cookieValue, expirationDays) {
             const current = new Date();
             const expire = new Date(current.getTime() + expirationDays * 24 * 3600 * 1000);
-            document.cookie = `${cookieName}=${cookieValue}; expires=${expire.toUTCString()}`;
+            document.cookie = `${cookieName}=${cookieValue}; expires=${expire.toUTCString()}; path=/`;
         }
 
         function deleteAllCookie() {
