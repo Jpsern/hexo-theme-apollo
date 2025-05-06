@@ -23,8 +23,8 @@
   <meta name="viewport" content="width=device-width">
   <%- json_ld() %>
   <%
-    const ogimg = page.og_image || '/images/og.png';
-    const ctype = page.og_image ? 'summary_large_image' : 'summary';
+    const ogimg = page.og_image || '/images/og-title.png';
+    const ctype = 'summary_large_image';
   %>
   <%- open_graph({twitter_id: theme.twitter, twitter_card: ctype, image: ogimg, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
   <% if (theme.rss){ %>
