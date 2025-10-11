@@ -6,7 +6,45 @@
 </header>
 <div class="widget">
   <h3 class="widget-title">Archives</h3>
-  <%- list_archives({format: "YYYY/MM"}) %>
+
+  <ul class="archive-list">
+    <%
+      // 投稿を新しい順に取得して年→月でカウント
+      const posts = site.posts.sort('date', -1);
+      const years = {};
+      posts.forEach(post => {
+        const y = post.date.format('YYYY');
+        const m = post.date.format('MM');
+        years[y] = years[y] || {};
+        years[y][m] = (years[y][m] || 0) + 1;
+      });
+
+      // 年は降順
+      const sortedYears = Object.keys(years).sort((a, b) => b - a);
+    %>
+
+    <% sortedYears.forEach((year, idx) => { %>
+      <li class="archive-year">
+        <details <%= idx === 0 ? 'open' : '' %>>
+          <summary><%= year %></summary>
+          <ul>
+            <%
+              // 月も降順
+              const months = Object.keys(years[year]).sort().reverse();
+              months.forEach(month => {
+                // 月別アーカイブの URL
+                const archiveUrl = url_for('/archives/' + year + '/' + month + '/');
+            %>
+              <li>
+                <a href="<%= archiveUrl %>"><%= year %>/<%= month %></a>
+                (<%= years[year][month] %>)
+              </li>
+            <% }) %>
+          </ul>
+        </details>
+      </li>
+    <% }) %>
+  </ul>
 </div>
 <div class="widget">
   <h3 class="widget-title">Categories</h3>
