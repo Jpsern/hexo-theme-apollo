@@ -8,9 +8,9 @@
 	<nav class="nav">
 		<ul>
 			<% for (var i in theme.menu){ %><li><a href="<%- theme.menu[i] %>"><%= i %></a></li><% } %>
-			<li><a href="https://github.com/Jpsern" id="nav-github-btn" class="nav-icon" title="GitHub" target="_blank" rel="noopener"></a></li>
-			<li><a href="https://twitter.com/tommy0157" id="nav-twitter-btn" class="nav-icon" title="Twitter" target="_blank" rel="noopener"></a></li>
-			<% if (theme.rss){ %><li><a href="<%- theme.rss %>" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li><% } %>
+			<li><a href="https://github.com/Jpsern" id="nav-github-btn" class="nav-icon" title="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+			<li><a href="https://twitter.com/tommy0157" id="nav-twitter-btn" class="nav-icon" title="Twitter" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+			<% if (theme.rss){ %><li><a href="<%- theme.rss %>" id="nav-rss-link" class="nav-icon" title="RSS Feed"><i class="fa-solid fa-rss" aria-hidden="true"></i></a></li><% } %>
 		</ul>
 	</nav>
 </header>
