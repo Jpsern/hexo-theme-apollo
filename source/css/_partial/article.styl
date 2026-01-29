@@ -148,20 +148,41 @@
     padding: 3px 5px
 
   blockquote
-    font-family: font-serif
-    margin: 1.5em 3em
-    padding: 5px 20px
-    border-left: 2px solid #aaa
-    color: color-footer
-    p:last-child
-      margin-bottom: 0
-    footer
-      font-size: font-size
-      font-family: font-sans
-      cite
-        &:before
-          content: "—"
-          padding: 0 0.5em
+    font-family font-serif
+    background none repeat scroll 0 0 rgba(245, 245, 245, 0.8)
+    border 1px solid #FFFFFF
+    margin 1em 0
+    padding 20px 55px
+    position relative
+
+    &:before
+      color #C8C8C8
+      content '\f10d'
+      font-size 28px
+      font-family font-icon
+      font-weight font-icon-weight
+      left 10px
+      line-height 1em
+      position absolute
+      top 5px
+
+    &:after
+      color #C8C8C8
+      content '\f10e'
+      font-size 28px
+      font-family font-icon
+      font-weight font-icon-weight
+      line-height 0
+      position absolute
+      right 10px
+      bottom 5px
+
+    cite
+      display block
+      font-size 0.8rem
+      text-align right
+      color #808080
+      padding-right 20px
 
   .pullquote
     border-left: 0
