@@ -1,56 +1,72 @@
 Hexo theme: Apollo
 =================
 
-This hexo theme is a fork from https://github.com/AthenaYin/hexo-theme-apollo
+自分のサイト向けに調整した [AthenaYin/hexo-theme-apollo](https://github.com/AthenaYin/hexo-theme-apollo) のフォークです。
 
-## Installation
+## Install
 
-### Install
+Hexo プロジェクトの `themes/` 配下に配置します。
 
-Run this command from inside your hexo project
-``` bash
-$ git clone https://github.com/jpsern/hexo-theme-apollo.git themes/apollo
-```
-
-If your project already in Git management, please using Git submodule.
 ```bash
-$ git submodule add https://github.com/jpsern/hexo-theme-apollo.git
+git clone https://github.com/Jpsern/hexo-theme-apollo.git themes/apollo
 ```
 
-**Apollo requires Hexo 2.4 and above.**
+Git 管理下のプロジェクトでは、サブモジュールとして追加できます。
 
-### Update
-
-``` bash
-cd themes/apollo
-git pull
+```bash
+git submodule add https://github.com/Jpsern/hexo-theme-apollo.git themes/apollo
 ```
 
-If using Git submodule
+## 更新
+
+サブモジュール運用の場合は、プロジェクトルートで更新します。
+
 ```bash
 git submodule update
 ```
 
-## Configuration
+テーマを単体で clone している場合は、`themes/apollo` で `git pull` を実行します。
 
-``` yml
+## 設定
+
+`themes/apollo/_config.yml` で主に次を設定します。
+
+```yml
 # Header
 menu:
-    Home: /
-    Archives: /archives
+  Home: /
+  About: /about/
+  Archives: /archives/
+  Music: /music/
+  Privacy: /privacy/
 rss: /atom.xml
 
 # Content
-excerpt_link: Read More
-fancybox: true
+excerpt_link: もっと見る
 
 # Miscellaneous
 google_analytics:
-favicon: /favicon.png
+  tracking_id: UA-xxxxxxx
+  measurement_id: G-xxxxxxxx
+
+toc:
+  maxdepth: 3
+  class: toc
+  slugify: uslug
+  decodeEntities: false
+  anchor:
+    position: after
+    symbol: '#'
+    style: header-anchor
 ```
 
-- **menu** - Navigation menu
-- **rss** - RSS link
-- **excerpt_link** - "Read More" link at the bottom of excerpted articles. `false` to hide the link.
-- **google_analytics** - Google Analytics ID
-- **favicon** - Favicon path
+- `menu` - ヘッダーナビゲーション
+- `rss` - RSS/Atom のリンク
+- `excerpt_link` - 抜粋表示の「続きを読む」リンク
+- `google_analytics.measurement_id` - Google Analytics の計測 ID
+- `toc` - 目次の出力設定
+
+## 補足
+
+- `fancybox` と `favicon` の設定は現在のテーマでは使っていません
+- `google_analytics.tracking_id` は互換用に残していますが、テンプレートでは `measurement_id` を参照しています
