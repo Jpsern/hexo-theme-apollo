@@ -59,7 +59,7 @@ function jsonLd() {
     };
 
     if (page.excerpt) {
-      post.description = this.strip_html(page.excerpt);
+      post.description = this.strip_html(page.excerpt).trim();
     }
 
     if (page.og_image) {
@@ -102,7 +102,7 @@ function jsonLd() {
     };
 
     if (page.excerpt) {
-      webPage.description = this.strip_html(page.excerpt);
+      webPage.description = this.strip_html(page.excerpt).trim();
     }
 
     graph = [
