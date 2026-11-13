@@ -44,7 +44,8 @@
             popupDisplay();
         }
 
-        if (readCookie('jpsern-cookie') === 'accepted') {
+        const consent = readCookie('jpsern-cookie');
+        if (consent === 'accepted' || consent === 'passed') {
             loadAnalytics();
         }
 
