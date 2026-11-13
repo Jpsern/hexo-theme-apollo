@@ -34,6 +34,10 @@
 .mobile-nav-panel
   display: none
   padding: 15px 0 0
+  border: 0
+  color: inherit
+  background: transparent
+  cursor: pointer
   .icon-reorder
     cursor: pointer
     display: inline-block
@@ -41,6 +45,18 @@
     height: 17px
     background: url('/images/icon-reorder@2x.png') no-repeat 0 0
     background-size: 18px 17px
+
+.skip-link
+  position: absolute
+  z-index: 10
+  top: 0
+  left: 0
+  padding: .75em 1em
+  color: #fff
+  background: #222
+  transform: translateY(-150%)
+  &:focus
+    transform: translateY(0)
 
 .nav
   margin: 10px 0

@@ -16,12 +16,12 @@
             <% if (item.title){ %>
               <% if (item.link){ %>
                 <% if (item.title){ %>
-                  <h3 class="title link"><a href="<%- item.link %>" target="_blank"><%= item.title %></a></h3>
+                  <h3 class="title link"><a href="<%- item.link %>" target="_blank" rel="noopener noreferrer"><%= item.title %></a></h3>
                 <% } else { %>
-                  <h3 class="title link"><a href="<%- item.link %>" target="_blank"><%= item.link %></a></h3>
+                  <h3 class="title link"><a href="<%- item.link %>" target="_blank" rel="noopener noreferrer"><%= item.link %></a></h3>
                 <% } %>
               <% } else { %>
-                <h3><a href="<%- config.root %><%- item.path %>"><%= item.title %></a></h1>
+                <h3><a href="<%- config.root %><%- item.path %>"><%= item.title %></a></h3>
               <% } %>
             <% } else { %>
                 <h3>タイトルなし</h3>
