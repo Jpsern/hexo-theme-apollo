@@ -7,19 +7,31 @@
             return cookieDataList.some(cookie => cookie.startsWith(`${cookieName}=`));
         }
 
-        function setCookie(cookieName, cookieValue, expirationDays) {
-            const current = new Date();
-            const expire = new Date(current.getTime() + expirationDays * 24 * 3600 * 1000);
-            document.cookie = `${cookieName}=${cookieValue}; expires=${expire.toUTCString()}; path=/`;
+        function readCookie(cookieName) {
+            const prefix = `${cookieName}=`;
+            const cookie = document.cookie.split('; ').find(item => item.startsWith(prefix));
+            return cookie ? cookie.slice(prefix.length) : '';
         }
 
-        function deleteAllCookie() {
-            const maxAgeZero = 'max-age=0';
+        function setConsentCookie(value) {
+            const expire = new Date(Date.now() + 31 * 24 * 3600 * 1000);
+            const secure = window.location.protocol === 'https:' ? '; Secure' : '';
+            document.cookie = `jpsern-cookie=${value}; expires=${expire.toUTCString()}; path=/; SameSite=Lax${secure}`;
+        }
 
-            document.cookie.split('; ').forEach(cookie => {
-                const [cookieName] = cookie.split('=');
-                document.cookie = `${cookieName}=; ${maxAgeZero}`;
-            });
+        function loadAnalytics() {
+            const measurementId = cookiePopup.dataset.measurementId;
+            if (!measurementId) return;
+
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function(){ window.dataLayer.push(arguments); };
+            window.gtag('js', new Date());
+            window.gtag('config', measurementId);
+
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
+            document.head.append(script);
         }
 
         const cookiePopup = document.querySelector('.cookie-consent');
@@ -30,22 +42,24 @@
         const rejectFlag = sessionStorage.getItem('rejectFlag');
         if (!hasCookie('jpsern-cookie') && !rejectFlag) {
             popupDisplay();
-        } else if (rejectFlag) {
-            deleteAllCookie();
+        }
+
+        if (readCookie('jpsern-cookie') === 'accepted') {
+            loadAnalytics();
         }
 
         const agreeButton = document.querySelector('.cookie-agree');
         agreeButton.addEventListener('click', () => {
             cookiePopup.classList.add('cc-hide2');
-            // 拒否時はそもそも cookie 使わないのでぶっちゃけ value はなんでもいい。とりあえず適当
-            setCookie('jpsern-cookie', 'passed', 31);
+            setConsentCookie('accepted');
+            loadAnalytics();
         });
 
         const rejectButton = document.querySelector('.cookie-reject');
         rejectButton.addEventListener('click', () => {
             cookiePopup.classList.add('cc-hide2');
             sessionStorage.setItem('rejectFlag', true);
-            deleteAllCookie();
+            setConsentCookie('rejected');
         });
     });
 }());
