@@ -1,11 +1,12 @@
-<div class="mobile-nav-panel">
-	<i class="icon-reorder icon-large"></i>
-</div>
+<a class="skip-link" href="#main">本文へ移動</a>
 <header id="header">
 	<h1 class="blog-title">
 		<a href="<%- config.root %>"><img style="height:15px;width:15px;margin-right: 0.2em;margin-bottom: 0.1em;" src="/images/dokan.svg" alt=""><%= config.title %></a>
 	</h1>
-	<nav class="nav">
+	<button class="mobile-nav-panel" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="ナビゲーションを開く">
+		<i class="icon-reorder icon-large" aria-hidden="true"></i>
+	</button>
+	<nav class="nav" id="site-navigation" aria-label="メインナビゲーション">
 		<ul>
 			<% for (var i in theme.menu){ %><li><a href="<%- theme.menu[i] %>"><%= i %></a></li><% } %>
 			<li><a href="https://github.com/Jpsern" id="nav-github-btn" class="nav-icon" title="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
