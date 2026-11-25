@@ -34,7 +34,7 @@
         window.setTimeout(function() {
           button.setAttribute("aria-label", "URLをコピー");
           button.setAttribute("title", "URLをコピー");
-          icon.className = "fa-regular fa-copy fa-lg";
+          icon.className = "fa-solid fa-copy fa-lg";
           status.textContent = "";
         }, 2500);
       }

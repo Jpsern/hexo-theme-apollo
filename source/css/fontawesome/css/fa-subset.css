@@ -87,6 +87,15 @@
 .fa-bookmark {
   --fa: "\f02e";
 }
+.fa-copy {
+  --fa: "\f0c5";
+}
+.fa-check {
+  --fa: "\f00c";
+}
+.fa-triangle-exclamation {
+  --fa: "\f071";
+}
 .fa-clock {
   --fa: "\f017";
 }
